@@ -15,7 +15,7 @@ mongoose.Promise = Promise;
 
 // Initialize Express
 var app = express();
-var PORT = process.env.PORT || 670;
+var PORT = process.env.PORT || 680;
 // Use morgan and body parser with our app
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({
@@ -82,6 +82,40 @@ app.get("/api", function(req, res) {
   });
   // Tell the browser that we finished scraping the text
   // console.log("Scrape Complete");
+});
+
+app.get("/articles", function(req, res){
+
+
+
+  Article.find({}, function(err, doc)
+  {
+
+
+        if(err){
+
+
+            console.log(err);
+        }
+        else{
+
+
+          res.json(doc);
+        }
+
+
+
+  });
+
+
+
+
+
+
+
+
+
+
 });
 
 
